@@ -48,6 +48,9 @@
                         Clés API
                 </a>
                 @endif
+                <a href="{{ route('ardoise') }}" class="navbar-item">
+                        Ardoise
+                </a>
             </div>
             <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link">
