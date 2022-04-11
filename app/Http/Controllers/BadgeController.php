@@ -75,7 +75,7 @@ class BadgeController extends Controller
         } else {
             $current_email = Auth::id();
             $current_id = current(array_filter($users, function($v) use ($current_email) {
-                    return $v['email'] == $current_email;
+                        return $v['email'] == $current_email;
                 }))['id'];
             $badges = Badges::where('user_id', $current_id)->get();
         }

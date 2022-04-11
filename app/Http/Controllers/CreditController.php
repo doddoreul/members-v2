@@ -6,12 +6,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use App\Models\Transactions;
+use App\Models\Badges;
 
 class CreditController extends Controller
 {
 
     public function index(Request $request, $email = null){
-
 
         if($email && !Auth::hasRole('members-admin')) {
             abort(403, 'Access denied');
@@ -19,7 +19,8 @@ class CreditController extends Controller
         if(!$email) $email = Auth::id();
         $user = $this->getProfile($email);
 
-
+        //$user_id = Badges::where()
+        
         /* TODO 
 	     * user_id hardcoded!!!!!!
          */
@@ -39,7 +40,6 @@ class CreditController extends Controller
     public function topup(Request $request){
     	//dd($request);
     	$amount = +$request->get('amount');
-
     	
     	if($amount > 0 && $amount <= 20){
 	    	$paymentMethod = $request->get('payment_method');
