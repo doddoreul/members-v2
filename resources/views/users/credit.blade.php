@@ -11,8 +11,10 @@
     <section class="section">
         <div class="container">
             <div class="columns">
+                Solde actuel: {{ $user->credit }} <br>
+                UserID: {{ $user->user_id }}
                 <div class="column">
-                    <form method="POST" action="credit/reload">
+                    <form method="POST" action="credit/topup">
                         @csrf
                         <div class="field is-horizontal">
                             <div class="field-label is-normal">
