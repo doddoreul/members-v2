@@ -12,16 +12,18 @@
         <div class="container">
             <div class="columns">
                 <div class="column">
-                    <form method="POST" action="">
+                    <form method="POST" action="credit/reload">
+                        @csrf
                         <div class="field is-horizontal">
                             <div class="field-label is-normal">
-                                <label class="label">Montant</label>
+                                <label class="label">Montant (€)</label>
                             </div>
                             <div class="field-body">
                                 <div class="field">
                                     <p class="control">
-                                        <input class="input" type="number" name="amount" required>
+                                        <input class="input" type="number" name="amount" required min="0" max="20">
                                     </p>
+                                    <p class="help">Minimum 0, maximum 20€</p>
                                 </div>
                             </div>
                         </div>
@@ -33,19 +35,19 @@
                                 <div class="field is-narrow">
                                     <div class="control">
                                         <label for="payment_SEPA" class="radio">
-                                            <input type="radio" name="payment_method" id="payment_SEPA" required>
+                                            <input type="radio" name="payment_method" id="payment_SEPA" value="SEPA" required>
                                             Virement bancaire 
                                         </label>
                                         <label for="payment_cash" class="radio">
-                                            <input type="radio" name="payment_method" id="payment_cash">
+                                            <input type="radio" name="payment_method" id="payment_cash" value="cash">
                                             Cash (tronc)
                                         </label>
                                         <label for="payment_QR" class="radio">
-                                            <input type="radio" name="payment_method" id="payment_QR">
+                                            <input type="radio" name="payment_method" id="payment_QR" value="QR">
                                             QR code cuisine
                                         </label>
                                         <label for="payment_sumup" class="radio">
-                                            <input type="radio" name="payment_method" id="payment_sumup">
+                                            <input type="radio" name="payment_method" id="payment_sumup" value="sumup">
                                             Sumup!
                                         </label>
                                     </div>

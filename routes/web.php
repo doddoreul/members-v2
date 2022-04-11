@@ -16,14 +16,20 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => 'keycloak'], function () {
     Route::get('/', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
     Route::get('/roles', [App\Http\Controllers\ProfileController::class, 'roles'])->name('roles');
+
     Route::group(['prefix' => 'users', 'as' => 'users::'], function () {
         Route::post('/', [App\Http\Controllers\ProfileController::class, 'update'])->name('update');
         Route::get('/{id}', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
         Route::get('/', [App\Http\Controllers\UserController::class, 'list'])->name('list');
     });
 
-    Route::get('/credit', [App\Http\Controllers\CreditController::class, 'index'])->name('credit');
-    
+    //Route::get('/credit', [App\Http\Controllers\CreditController::class, 'index'])->name('credit');
+    Route::group(['prefix' => 'credit', 'as' => 'credit::'], function () {
+        Route::get('/', [App\Http\Controllers\CreditController::class, 'index'])->name('index');
+        Route::post('/reload',[App\Http\Controllers\CreditController::class, 'reload'])->name('reload');
+    });
+
+
     Route::group(['prefix' => 'badges', 'as' => 'badges::'], function () {
         Route::group(['prefix' => 'roles', 'as' => 'roles::'], function () {
             Route::get('/', [\App\Http\Controllers\Badge\RoleController::class, 'list'])->name('list');
@@ -35,6 +41,7 @@ Route::group(['middleware' => 'keycloak'], function () {
         Route::get('/', [App\Http\Controllers\BadgeController::class, 'list'])->name('list');
         Route::delete('/{id}', [App\Http\Controllers\BadgeController::class, 'destroy'])->name('destroy');
     });
+
     Route::group(['prefix' => 'accesses', 'as' => 'accesses::'], function () {
         Route::post('/', [App\Http\Controllers\AccessController::class, 'generate'])->name('generate');
         Route::get('/', [App\Http\Controllers\AccessController::class, 'list'])->name('list');

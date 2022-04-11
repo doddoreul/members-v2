@@ -48,7 +48,7 @@
                         Clés API
                 </a>
                 @endif
-                <a href="{{ route('credit') }}" class="navbar-item">
+                <a href="{{ route('credit::index') }}" class="navbar-item">
                         Crédit
                 </a>
             </div>
