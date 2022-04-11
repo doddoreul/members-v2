@@ -22,10 +22,8 @@ Route::group(['middleware' => 'keycloak'], function () {
         Route::get('/', [App\Http\Controllers\UserController::class, 'list'])->name('list');
     });
 
-    Route::group(['prefix' => 'credit', 'as' => 'credit::'], function () {
-        Route::get('/', [App\Http\Controllers\CreditController::class, 'index'])->name('get');
-    });
-
+    Route::get('/credit', [App\Http\Controllers\CreditController::class, 'index'])->name('credit');
+    
     Route::group(['prefix' => 'badges', 'as' => 'badges::'], function () {
         Route::group(['prefix' => 'roles', 'as' => 'roles::'], function () {
             Route::get('/', [\App\Http\Controllers\Badge\RoleController::class, 'list'])->name('list');

@@ -14,12 +14,12 @@
                 <div class="column">
                     <form method="POST" action="">
                         <div class="field is-horizontal">
-                            <div class="field-label">
-                                <label class="label">Montant:</label>
+                            <div class="field-label is-normal">
+                                <label class="label">Montant</label>
                             </div>
                             <div class="field-body">
                                 <div class="field">
-                                    <p class="control is-expanded">
+                                    <p class="control">
                                         <input class="input" type="number" name="amount" required>
                                     </p>
                                 </div>
@@ -30,33 +30,40 @@
                                 <label class="label">Méthode</label>
                             </div>
                             <div class="field-body">
-                                <div class="field is-expanded">
-
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="payment_method" id="payment_method">
-                                        <label class="form-check-label" for="payment_method">
-                                            Virement bancaire
+                                <div class="field is-narrow">
+                                    <div class="control">
+                                        <label for="payment_SEPA" class="radio">
+                                            <input type="radio" name="payment_method" id="payment_SEPA" required>
+                                            Virement bancaire 
                                         </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="payment_method" id="payment_method">
-                                        <label class="form-check-label" for="payment_method">
+                                        <label for="payment_cash" class="radio">
+                                            <input type="radio" name="payment_method" id="payment_cash">
                                             Cash (tronc)
                                         </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="payment_method" id="payment_method">
-                                        <label class="form-check-label" for="payment_method">
+                                        <label for="payment_QR" class="radio">
+                                            <input type="radio" name="payment_method" id="payment_QR">
                                             QR code cuisine
                                         </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="payment_method" id="payment_method">
-                                        <label class="form-check-label" for="payment_method">
+                                        <label for="payment_sumup" class="radio">
+                                            <input type="radio" name="payment_method" id="payment_sumup">
                                             Sumup!
                                         </label>
                                     </div>
-                                    
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="field is-horizontal">
+                            <div class="field-label">
+                                <!-- Left empty for spacing -->
+                            </div>
+                            <div class="field-body">
+                                <div class="field">
+                                    <div class="control">
+                                        <button class="button is-primary">
+                                            Recharger!
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>

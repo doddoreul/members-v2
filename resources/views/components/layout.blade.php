@@ -48,8 +48,8 @@
                         Clés API
                 </a>
                 @endif
-                <a href="{{ route('ardoise') }}" class="navbar-item">
-                        Ardoise
+                <a href="{{ route('credit') }}" class="navbar-item">
+                        Crédit
                 </a>
             </div>
             <div class="navbar-item has-dropdown is-hoverable">
